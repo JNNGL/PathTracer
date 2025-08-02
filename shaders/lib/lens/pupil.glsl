@@ -69,7 +69,11 @@ bool rayPassesThroughAperture(ray r, float apertureRadius, const int lambda) {
     return true;
 }
 
-float searchEntracePupilRadius(const int iterations) {
+float searchEntrancePupilRadius(const int iterations) {
+    if (frontLensElement().curvature == 0.0) {
+        return frontLensElement().aperture;
+    }
+
     float boundMin = 0.0;
     float boundMax = frontLensElement().aperture;
 
@@ -85,7 +89,7 @@ float searchEntracePupilRadius(const int iterations) {
     return 0.5 * (boundMin + boundMax);
 }
 
-float searchApertureRadius(const int iterations, float entracePupilRadius) {
+float searchApertureRadius(const int iterations, float entrancePupilRadius) {
     float radiusMin = 1.0e-10;
     float radiusMax = 1.0;
 
@@ -98,7 +102,7 @@ float searchApertureRadius(const int iterations, float entracePupilRadius) {
 
     for (int i = 0; i < iterations; i++) {
         float midPoint = 0.5 * (radiusMin + radiusMax);
-        if (rayPassesThroughAperture(ray(vec3(entracePupilRadius, 0.0, -1.0), vec3(0.0, 0.0, 1.0)), midPoint, 550)) {
+        if (rayPassesThroughAperture(ray(vec3(entrancePupilRadius, 0.0, -1.0), vec3(0.0, 0.0, 1.0)), midPoint, 550)) {
             radiusMax = midPoint;
         } else {
             radiusMin = midPoint;

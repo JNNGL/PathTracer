@@ -29,11 +29,11 @@ void main() {
 
     for (int i = 0; i < 8; i++) {
         uint index = gl_GlobalInvocationID.x * 8 + i;
-        if (index > 512u * 386u * 512u) break;
+        if (index >= 512u * 384u * 512u) break;
 
         uint x = index % 512u;
-        uint y = (index / 512u) % 386u;
-        uint z = (index / 512u) / 386u;
+        uint y = (index / 512u) % 384u;
+        uint z = (index / 512u) / 384u;
 
         imageStore(voxelBuffer, ivec3(x, y, z), uvec4(0, 0, 0, 0));
     }

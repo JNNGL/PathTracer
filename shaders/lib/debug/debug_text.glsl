@@ -36,10 +36,28 @@ void printLensType() {
     printString((_L, _e, _n, _s, _colon, _space, _T, _e, _s, _s, _a, _r));
     printLine();
 #elif (LENS_TYPE == 3)
-    printString((_L, _e, _n, _s, _colon, _space, _C, _o, _o, _k, _e, _space, _T, _r, _i, _p, _l, _e, _t));
+    printString((_L, _e, _n, _s, _colon, _space, _Z, _e, _i, _s, _s, _space, _B, _i, _o, _t, _a, _r));
     printLine();
 #elif (LENS_TYPE == 4)
     printString((_L, _e, _n, _s, _colon, _space, _P, _e, _t, _z, _v, _a, _l));
+    printLine();
+#elif (LENS_TYPE == 5)
+    printString((_L, _e, _n, _s, _colon, _space, _H, _y, _p, _e, _r, _g, _o, _n));
+    printLine();
+#elif (LENS_TYPE == 6)
+    printString((_L, _e, _n, _s, _colon, _space, _C, _o, _n, _c, _e, _n, _t, _r, _i, _c));
+    printLine();
+#elif (LENS_TYPE == 7)
+    printString((_L, _e, _n, _s, _colon, _space, _P, _e, _r, _l, _e));
+    printLine();
+#elif (LENS_TYPE == 8)
+    printString((_L, _e, _n, _s, _colon, _space, _P, _h, _o, _t, _o, _g, _r, _a, _p, _h, _i, _c));
+    printLine();
+#elif (LENS_TYPE == 9)
+    printString((_L, _e, _n, _s, _colon, _space, _K, _i, _n, _o, _minus, _P, _l, _a, _s, _m, _a, _t));
+    printLine();
+#elif (LENS_TYPE == 10)
+    printString((_L, _e, _n, _s, _colon, _space, _P, _a, _n, _t, _a, _r));
     printLine();
 #endif
 }

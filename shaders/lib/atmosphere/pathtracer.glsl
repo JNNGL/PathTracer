@@ -132,9 +132,10 @@ float pathTraceAtmosphere(ray r, vec3 sunPosition, float sunRadiance, vec3 beta,
             wo = sampleSphere(random2());
             estimator = 4.0 * PI * rayleighPhase(dot(r.direction, wo), wavelength);
         } else if (interaction.y == 1.0) { // Aerosols
-            phaseLight = hgDrainePhase(dot(r.direction, sunDirection), aerosolDiameter);
+            const float energyParameter = 3000.0;
+            phaseLight = kleinNishinaPhase(dot(r.direction, sunDirection), energyParameter);
             
-            wo = sampleHgDraine(r.direction, random3(), aerosolDiameter);
+            wo = sampleKleinNishina(r.direction, random2(), energyParameter);
             estimator = 1.0;
         }
         

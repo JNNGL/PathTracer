@@ -51,7 +51,11 @@ void main() {
 #elif (EXPOSURE == 1)
     ev100 = cameraSettingsToEV100(float(SHUTTER_SPEED), float(ISO));
 #endif
-    color *= exposureFromEV100(ev100 - float(EV));
+    if (renderState.frame != 0) {
+        color *= exposureFromEV100(ev100 - float(EV));
+    } else {
+        color /= 128.0;
+    }
 
     color = tonemap(color);
     color = linearToSrgb(color);

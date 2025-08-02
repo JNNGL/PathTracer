@@ -126,25 +126,38 @@ float sampleDraine(float rand, float g, float a) {
         sqrt(6.0 * (1.0 + g * g) - t8 + 8.0 * t4 / (t0 * t9)) - t9, 2.0));
 }
 
-vec3 sampleHgDraine(vec3 w, vec3 rand, float d) {
-    float gHG, gD, a, wD;
-    hgDraineParams(d, gHG, gD, a, wD);
-
-    float cosTheta;
-    if (rand.z < wD) {
-        cosTheta = sampleDraine(rand.x, gD, a);
-    } else {
-        cosTheta = sampleHenyeyGreenstein(rand.x, gHG);
-    }
-    
+vec3 sampleFromDeflectionCosine(vec3 w, float cosTheta, float rand) {
     float sinTheta = sqrt(1.0 - cosTheta * cosTheta);
-    float phi = 2.0 * PI * rand.y;
+    float phi = 2.0 * PI * rand;
     vec3 spherical = vec3(sinTheta * cos(phi), sinTheta * sin(phi), cosTheta);
     
     vec3 b1, b2;
     buildOrthonormalBasis(w, b1, b2);
     
-    return normalize(b1 * spherical.x + b2 * spherical.y + w * spherical.z);
+    return b1 * spherical.x + b2 * spherical.y + w * spherical.z;
+}
+
+vec3 sampleHgDraine(vec3 w, vec3 rand, float d) {
+    float gHG, gD, a, wD;
+    hgDraineParams(d, gHG, gD, a, wD);
+
+    float cosTheta;
+    if (rand.y < wD) {
+        cosTheta = sampleDraine(rand.x, gD, a);
+    } else {
+        cosTheta = sampleHenyeyGreenstein(rand.x, gHG);
+    }
+    
+    return sampleFromDeflectionCosine(w, cosTheta, rand.z);
+}
+
+float kleinNishinaPhase(float cosTheta, float e) {
+    return e / (2.0 * PI * (e * (1.0 - cosTheta) + 1.0) * log(2.0 * e + 1.0));
+}
+
+vec3 sampleKleinNishina(vec3 w, vec2 rand, float e) {
+    float cosTheta = (-pow(2.0 * e + 1.0, 1.0 - rand.x) + e + 1.0) / e;
+    return sampleFromDeflectionCosine(w, cosTheta, rand.y);
 }
 
 // Ozone absorption fit by FordPerfect

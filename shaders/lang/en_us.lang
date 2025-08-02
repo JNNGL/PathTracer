@@ -101,8 +101,14 @@ value.TONEMAP.3 = ACES (Fitted)
 value.LENS_TYPE.0 = Double Gauss
 value.LENS_TYPE.1 = Fisheye
 value.LENS_TYPE.2 = Tessar
-value.LENS_TYPE.3 = Cooke Triplet
+value.LENS_TYPE.3 = Zeiss Biotar
 value.LENS_TYPE.4 = Petzval
+value.LENS_TYPE.5 = Hypergon
+value.LENS_TYPE.6 = Concentric
+value.LENS_TYPE.7 = Perle
+value.LENS_TYPE.8 = Photographic
+value.LENS_TYPE.9 = Kino-Plasmat
+value.LENS_TYPE.10 = Pantar
 
 value.APERTURE_SHAPE.0 = Circular
 value.APERTURE_SHAPE.1 = Hexagonal

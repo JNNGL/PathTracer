@@ -37,7 +37,7 @@ layout (std430, binding = 1) buffer render_state {
     float focusDistance;
     float rearThicknessDelta;
     exit_pupil_data exitPupil;
-    float entracePupilRadius;
+    float entrancePupilRadius;
     float focalLength;
     float apertureRadius;
     float fNumber;
