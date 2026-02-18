@@ -24,7 +24,7 @@ uniform ivec3 currentDate;
 uniform ivec3 currentTime;
 uniform ivec2 currentYearTime;
 
-#define UTC(hour, minute) ((hour < 0 ? -1 : 1) * (abs(hour) * 3600 + minute * 60))
+#define UTC(hour, minute) int((hour < 0 ? -1 : 1) * (abs(hour) * 3600 + minute * 60))
 
 const int UTC_OFFSETS[] = int[](
     UTC(-12, 00), UTC(-11, 00), UTC(-10, 00), UTC(-09, 30), 
