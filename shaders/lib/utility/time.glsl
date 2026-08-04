@@ -27,16 +27,16 @@ uniform ivec2 currentYearTime;
 #define UTC(hour, minute) int((hour < 0 ? -1 : 1) * (abs(hour) * 3600 + minute * 60))
 
 const int UTC_OFFSETS[] = int[](
-    UTC(-12, 00), UTC(-11, 00), UTC(-10, 00), UTC(-09, 30), 
-    UTC(-09, 00), UTC(-08, 00), UTC(-07, 00), UTC(-06, 00), 
-    UTC(-05, 00), UTC(-04, 00), UTC(-03, 30), UTC(-03, 00),
-    UTC(-02, 00), UTC(-01, 00), UTC(+00, 00), UTC(+01, 00), 
-    UTC(+02, 00), UTC(+03, 00), UTC(+03, 30), UTC(+04, 00), 
-    UTC(+04, 30), UTC(+05, 00), UTC(+05, 30), UTC(+05, 45),
-    UTC(+06, 00), UTC(+06, 30), UTC(+07, 00), UTC(+08, 00), 
-    UTC(+08, 45), UTC(+09, 00), UTC(+09, 30), UTC(+10, 00), 
-    UTC(+10, 30), UTC(+11, 00), UTC(+12, 00), UTC(+12, 45),
-    UTC(+13, 00), UTC(+14, 00)
+    UTC(-12,  0), UTC(-11,  0), UTC(-10,  0), UTC( -9, 30), 
+    UTC( -9,  0), UTC( -8,  0), UTC( -7,  0), UTC( -6,  0), 
+    UTC( -5,  0), UTC( -4,  0), UTC( -3, 30), UTC( -3,  0),
+    UTC( -2,  0), UTC( -1,  0), UTC(  0,  0), UTC(  1,  0), 
+    UTC(  2,  0), UTC(  3,  0), UTC(  3, 30), UTC(  4,  0), 
+    UTC(  4, 30), UTC(  5,  0), UTC(  5,  0), UTC(  5, 45),
+    UTC(  6,  0), UTC(  6, 30), UTC(  7,  0), UTC(  8,  0), 
+    UTC(  8, 45), UTC(  9,  0), UTC(  9, 30), UTC( 10,  0), 
+    UTC( 10, 30), UTC( 11,  0), UTC( 12,  0), UTC( 12, 45),
+    UTC( 13,  0), UTC( 14,  0)
 );
 
 struct datetime {
